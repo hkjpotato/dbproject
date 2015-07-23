@@ -1,0 +1,175 @@
+<!-- index.html -->
+<!doctype html>
+<html>
+<head>
+  <title>Angular Forms</title>
+
+  <!-- LOAD BOOTSTRAP CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+
+  <!-- LOAD JQUERY -->
+    <!-- when building an angular app, you generally DO NOT want to use jquery -->
+    <!-- we are breaking this rule here because jQuery's $.param will help us send data to our PHP script so that PHP can recognize it -->
+    <!-- this is jQuery's only use. avoid it in Angular apps and if anyone has tips on how to send data to a PHP script w/o jQuery, please state it in the comments -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <!-- LOAD ANGULAR -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+
+  <!-- PROCESS FORM WITH AJAX (OLD) -->
+  <script>
+    <!-- WE WILL PROCESS OUR FORM HERE -->
+
+
+        // define angular module/app
+    var formApp = angular.module('formApp', []);
+
+    // create angular controller and pass in $scope and $http
+    function formController($scope, $http) {
+
+
+      $scope.guestLogin = function() {
+        location.href='guestMenu.html';
+      }
+
+      //preload restaurant information
+      var request = $http({
+        method: "post",
+        // url: "http://localhost:8888/dbphp/test.php",
+        url: "getAllRestaurants.php",
+        data: $.param({
+          msg: "getAllRestaurant"
+        }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      })
+      .success(function (data) {
+        console.log("post success and response!");
+        $scope.restaurants = data;
+
+        console.log($scope.restaurants[0]);
+        $scope.selected = $scope.restaurants[0];
+
+       }); 
+
+      // setInterval(function(){
+      //   console.log($scope.selected.rid);
+      // }, 3000);
+
+
+      // create a blank object to hold our form information
+      // $scope will allow this to pass between controller and view
+      $scope.formData = {};
+
+      $scope.processForm = function() {
+        $scope.formData.rid = $scope.selected.rid;
+        $http({
+          method  : 'POST',
+          url     : 'enterComplaint.php',
+          data    : $.param($scope.formData),  // pass in data as strings
+          headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+         })
+          .success(function(data) {
+            console.log(data);
+
+            if (!data.success) {
+              // if not successful, bind errors&messagesto error variables
+              // $scope.errorName = data.errors.name;
+              // $scope.errorPassword = data.errors.password;
+              $scope.message = data.message;
+              console.log(data.message);
+
+            } else {
+              // if successful, bind success message to message
+              $scope.message = data.message;
+              console.log( "success to subimit!!!!");
+              alert('Complaint submitted!');
+              document.getElementById("myForm").reset();
+              location.href='guestMenu.html';
+
+
+            }
+          });
+
+      };
+
+    }
+
+  </script>
+</head>
+<body ng-app="formApp" ng-controller="formController">
+<div class="container">
+<div class="col-md-6 col-md-offset-3">
+
+  <!-- PAGE TITLE -->
+  <div class="page-header">
+    <h1><span class="glyphicon glyphicon-cutlery"></span> Food/Safety Complaint</h1>
+  </div>
+
+  <!-- SHOW ERROR/SUCCESS MESSAGES -->
+  <div id="selected restaurant" ><label>Make a complaint to {{ selected.name }}!</label></div>
+
+  <select 
+  ng-options="item.info for item in restaurants" 
+  ng-model="selected"
+  class="form-control">
+  </select>
+
+  <br>
+
+  <!-- SHOW ERROR/SUCCESS MESSAGES -->
+  <div id="messages" ng-show="message">{{ message }}</div>
+
+  <!-- FORM -->
+  <form id="myForm" ng-submit="processForm()">
+    <!-- NAME -->
+    <div id="date-group" class="form-group">
+      <label>Date of Meal</label>
+      <input type="text" name="date" class="form-control" placeholder="yyyy-mm-dd" ng-model="formData.date">
+      <!-- <span class="help-block" ng-show="errorDate">{{ errorDate }}</span>  -->
+    </div>
+
+
+    <div class="form-group">
+      <label>Customer First Name</label>
+      <input type="text" name="firstName" class="form-control" placeholder="e.g: Kaijie" ng-model="formData.firstName">
+      <!-- <span class="help-block" ng-show="errorPassword">{{ errorPassword }}</span>  -->
+    </div>
+
+    <div class="form-group">
+      <label>Customer Last Name</label>
+      <input type="text" name="lastName" class="form-control" placeholder="e.g: Huang" ng-model="formData.lastName">
+      <!-- <span class="help-block" ng-show="errorPassword">{{ errorPassword }}</span>  -->
+    </div>
+
+    <div class="form-group">
+      <label>Customer Phone</label>
+      <input type="text" name="phone" class="form-control" placeholder="e.g: 404-123-4567" ng-model="formData.phone">
+      <!-- <span class="help-block" ng-show="errorPassword">{{ errorPassword }}</span>  -->
+    </div>
+
+    <div class="form-group">
+      <label>Complaint Description</label>
+      <textarea rows="3" name="complaint" class="form-control" placeholder="e.g: hehe" ng-model="formData.complaint"></textarea>
+      <!-- <span class="help-block" ng-show="errorPassword">{{ errorPassword }}</span>  -->
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <button type="submit" class="btn btn-success btn-lg btn-block">
+      <span class="glyphicon glyphicon-flash"></span> Submit Complaint!
+    </button>
+    <br>
+    
+
+    <button class="btn btn-primary btn-lg btn-block" type="button" ng-click="guestLogin()">
+      <span class="glyphicon glyphicon-glass"></span> Cancel and Return
+    </button>
+
+  </form>
+
+
+
+  <!-- FORM -->
+
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!-- index.html -->
+<!doctype html>
+<html>
+<head>
+  <title>Angular Forms</title>
+
+  <!-- LOAD BOOTSTRAP CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container">
+<div class="col-md-6 col-md-offset-3">
+  <!-- PAGE TITLE -->
+  <div class="page-header">
+    <h1><span class="glyphicon glyphicon-glass"></span> Guest Menu</h1>
+  </div>
+
+  <button type="button" class="btn btn-success btn-lg btn-block" onClick="search()">
+    <!-- <span class="glyphicon glyphicon-user"></span> --> Search for a restaurant
+  </button>
+  <br>
+  <button type="button" class="btn btn-danger btn-lg btn-block" onClick="complain()">
+    <!-- <span class="glyphicon glyphicon-user"></span> --> Make a complaint
+  </button>
+  <br>
+  <br>
+  <button type="button" class="btn btn-default btn-lg btn-block" onClick="back()">
+    <span class="glyphicon glyphicon-flash"></span> Exit
+  </button>
+</div>
+</div>
+<script>
+  function search() {
+    // var guestSearchWindow = window.open("searchRestaurant.html","_self");
+    location.href='searchRestaurant.html';
+
+  } 
+
+  function complain() {
+    // var guestSearchWindow = window.open("guestComplain.html","_self");
+    location.href='guestComplain.html';
+
+  }
+  function back() {
+    // var guestSearchWindow = window.open("index.html","_self");
+    location.href='logout.php';
+
+  } 
+
+</script>
+</body>
+</html>
