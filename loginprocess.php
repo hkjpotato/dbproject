@@ -32,7 +32,7 @@ if (!empty($errors)) {
   // Create connection
 	$servername = "localhost";
 	$dbusername = "root";
-	$dbpassword = "1234";
+	$dbpassword = "root";
 	$dbname = "cs4400";
 
   	$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
