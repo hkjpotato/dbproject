@@ -104,6 +104,7 @@ app.controller('customersCtrl', function($scope, $http, $window) {
   console.log(userInfo);
 
   $scope.submit = function() {
+      $scope.records = null;
 
       $("#criteria").slideUp();
       $("#result").slideDown();

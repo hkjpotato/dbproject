@@ -138,6 +138,9 @@ app.controller('customersCtrl', function($scope, $http, $window) {
 
   $scope.submit = function() {
 
+      $scope.records = null;
+      $scope.total = null;
+
       $("#criteria").slideUp();
       $("#result").slideDown();
 

@@ -146,6 +146,7 @@ app.controller('customersCtrl', function($scope, $http, $window) {
 
 
   $scope.submit = function() {
+    $scope.restaurants = null;
     console.log($scope.zipcode);
     if ($scope.zipcode && $scope.score ) {
       $("#criteria").slideUp();

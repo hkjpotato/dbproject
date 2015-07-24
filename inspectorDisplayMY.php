@@ -122,6 +122,10 @@ app.controller('customersCtrl', function($scope, $http, $window) {
 
 
   $scope.submit = function() {
+      $scope.counties = null;
+      $scope.totalinspected = null;
+      $scope.totalfail = null;
+
 
       $("#criteria").slideUp();
       $("#result").slideDown();
