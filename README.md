@@ -5,10 +5,9 @@ The web application can be viewed on [52.24.114.125/dbproject](http://52.24.114.
 
 The web application is developed by Angular.js and jQuery for the front end, PHP and MySQL for the backend.
 
-For a quick taste of the application, log in using
-user : edo ; password : 1234
-Once logged in, the system will recognize you as an inspector. Click the last blue button to display reports about complaints. For the search criteria, use 
-year : 2015 ; min complaints: 0 ; max score : 100
+For a quick taste of the application, log in using {user : edo ; password : 1234}
+Once logged in, the system will recognize you as an inspector. Click the last blue button to display reports about complaints. 
+For the search criteria, use: {year : 2015 ; min complaints: 0 ; max score : 100}
 
 You may enter more report to see the change.
 
