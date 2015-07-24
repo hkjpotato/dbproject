@@ -1,7 +1,7 @@
 # dbproject
 This is a database course project by Kaijie Huang for CS4400 at Gatech.
 
-The web application can be viewed on 52.24.114.125/dbproject
+The web application can be viewed on [52.24.114.125/dbproject](http://52.24.114.125/dbproject/index.php)
 
 The web application is developed by Angular.js and Jquery for the front end, PHP and MySQL for the backend.
 
