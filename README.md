@@ -3,7 +3,7 @@ This is a database course project by Kaijie Huang for CS4400 at Gatech.
 
 The web application can be viewed on [52.24.114.125/dbproject](http://52.24.114.125/dbproject/index.php)
 
-The web application is developed by Angular.js and Jquery for the front end, PHP and MySQL for the backend.
+The web application is developed by Angular.js and jQuery for the front end, PHP and MySQL for the backend.
 
 The EER(Enhanced entity–relationship) diagram, information flow diagram as well as schema diagram for the database can be found in the document file.
 The working SQL example are also provided.
