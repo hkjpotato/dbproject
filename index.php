@@ -102,7 +102,7 @@ if(isset($_SESSION['userType'])){
 
   <!-- PAGE TITLE -->
   <div class="page-header">
-    <h1><span class="glyphicon glyphicon-cutlery"></span> Group 23 Project</h1>
+    <h1><span class="glyphicon glyphicon-cutlery"></span> GA Restaurant Inspection System </h1>
   </div>
 
   <!-- SHOW ERROR/SUCCESS MESSAGES -->
