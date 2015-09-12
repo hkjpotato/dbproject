@@ -80,18 +80,18 @@
   } 
 
   function showMY() {
-    location.href='InspectorDisplayMY.php';
+    location.href='inspectorDisplayMY.php';
 
   }
   function showYC() {
-    location.href='InspectorDisplayYC.php';
+    location.href='inspectorDisplayYC.php';
 
   }
   function showYCR() {
-    location.href='InspectorDisplayYCR.php';
+    location.href='inspectorDisplayYCR.php';
   }
   function showCS() {
-    location.href='InspectorDisplayCS.php';
+    location.href='inspectorDisplayCS.php';
   }
   function back() {
     // var guestSearchWindow = window.open("index.html","_self");
