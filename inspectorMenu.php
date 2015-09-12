@@ -18,7 +18,7 @@
 
       /*margin-top: 10px;*/
       width: 374px;
-      height: 490px;
+      height: 510px;
       margin-top: 20px;
       left: 50%;
       margin-left: -187px;
