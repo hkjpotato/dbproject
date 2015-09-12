@@ -137,6 +137,7 @@ app.controller('customersCtrl', function($scope, $http, $window) {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       });
        request.success(function (data) {
+        $scope.formData = null;
         $scope.counties = data.counties;
         $scope.totalinspected = data.totalinspected;
         $scope.totalfail = data.totalfail;
