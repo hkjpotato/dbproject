@@ -23,6 +23,27 @@
 
 }
 
+
+  .container {
+      position: absolute;
+
+      /*margin-top: 10px;*/
+      width: 374px;
+      /*height: 490px;*/
+      margin-top: 20px;
+      left: 50%;
+      margin-left: -187px;
+      /*left: 50%;*/
+      /*margin-top: 5%;*/
+
+      /*margin-left: 10%;*/
+      /*background: #5db2df;*/
+      /*background: #EDEFF2;*/
+      border-radius: 12px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+
 </style>
 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 <!-- Latest compiled and minified CSS -->
@@ -42,7 +63,7 @@
 
 
 <div class="container">
-<div class="col-md-9 col-md-offset-1">
+<div class="col-md-12 col-md-offset-0">
   <!-- PAGE TITLE -->
 <div class="page-header">
     <h1><span class="glyphicon glyphicon-glass"></span>Restaurants with Complaints </h1>
