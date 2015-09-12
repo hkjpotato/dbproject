@@ -26,7 +26,6 @@
 
   .container {
       position: absolute;
-
       /*margin-top: 10px;*/
       width: 374px;
       /*height: 490px;*/
