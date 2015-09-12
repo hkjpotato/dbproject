@@ -213,7 +213,7 @@ if(isset($_SESSION['userType'])){
 </head>
 <body ng-app="formApp" ng-controller="formController">
 <div class="container">
-<div class="col-md-6 col-md-offset-3">
+<div class="col-md-12 col-md-offset-0">
 
   <!-- PAGE TITLE -->
   <div class="page-header">
