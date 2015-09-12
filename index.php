@@ -44,11 +44,10 @@ if(isset($_SESSION['userType'])){
       /*margin-top: 5%;*/
 
       /*margin-left: 10%;*/
-
       background: #5db2df;
       /*background: #EDEFF2;*/
       border-radius: 12px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
       overflow: hidden;
     }
   
