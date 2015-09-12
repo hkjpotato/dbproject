@@ -39,7 +39,7 @@
 <body>
 
 <div class="container">
-<div class="col-md-6 col-md-offset-3">
+<div class="col-md-12 col-md-offset-0">
   <!-- PAGE TITLE -->
   <div class="page-header">
     <h1><span class="glyphicon glyphicon-eye-open"></span> Inspector Menu</h1>
