@@ -14,7 +14,28 @@ include('session.php');
 <script type="text/javascript">
     <?php echo 'var userInfo = "'.$_SESSION['userInfo'].'";'; ?>
 </script>
+<style type="text/css">
+  .container {
+      position: absolute;
 
+      /*margin-top: 10px;*/
+      width: 374px;
+      height: 490px;
+      margin-top: 20px;
+      left: 50%;
+      margin-left: -187px;
+      /*left: 50%;*/
+      /*margin-top: 5%;*/
+
+      /*margin-left: 10%;*/
+      /*background: #5db2df;*/
+      /*background: #EDEFF2;*/
+      border-radius: 12px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+
+</style>
 
 </head>
 <body>
