@@ -91,6 +91,7 @@
     location.href='inspectorDisplayYCR.php';
   }
   function showCS() {
+    //bug
     location.href='inspectorDisplayCS.php';
   }
   function back() {
