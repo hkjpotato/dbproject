@@ -246,14 +246,14 @@ if(isset($_SESSION['userType'])){
       <!-- NAME -->
       <div id="name-group" class="form-group">
         <label>Name</label>
-        <input type="text" name="name" class="form-control" placeholder="Chuney" ng-model="formData.name">
+        <input type="text" name="name" class="form-control" placeholder="e.g. edo" ng-model="formData.name">
         <span class="help-block" ng-show="errorName">{{ errorName }}</span> 
       </div>
 
       <!--  Password -->
       <div id="password-group" class="form-group">
         <label>Password</label>
-        <input type="text" name="password" class="form-control" placeholder="1234" ng-model="formData.password">
+        <input type="text" name="password" class="form-control" placeholder="e.g. 1234" ng-model="formData.password">
         <span class="help-block" ng-show="errorPassword">{{ errorPassword }}</span> 
 
       </div>
