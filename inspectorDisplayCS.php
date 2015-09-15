@@ -2,70 +2,103 @@
 
 <!DOCTYPE html>
 <html >
-<style>
-#result {
-  display: none;
-/*  margin-left: -40%; 
-  width: 180%;*/
-}
+<head>
+  <title>Angular Forms</title>
+  <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-.complaintPanel {
-  width: 90%;
-  margin-left: 5%;
-  margin-top: 2%;
-}
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-.infoList {
-  width: 90%;
-  margin-left: 5%;
-  margin-top: 2%;
+  <!-- Latest compiled JavaScript -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+      <?php echo 'var userInfo = "'.$_SESSION['userInfo'].'";'; ?>
+  </script>
 
 
-}
+  <style type="text/css">
+    #result {
+      display: none;
+    /*  margin-left: -40%; 
+      width: 180%;*/
+    }
 
-</style>
-<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    .complaintPanel {
+      width: 90%;
+      margin-left: 5%;
+      margin-top: 2%;
+    }
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    .infoList {
+      width: 90%;
+      margin-left: 5%;
+      margin-top: 2%;
+    }
 
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<script type="text/javascript">
-    <?php echo 'var userInfo = "'.$_SESSION['userInfo'].'";'; ?>
-</script>
+    .resultCard {
+      border-radius: 12px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+
+    .panel-heading {
+      /*border-radius: 11px 11px 0 0;*/
+      /*box-shadow: 0 2px 20px rgba(0,0,0,0.15);*/
+    }
+
+  .container {
+      position: absolute;
+      /*margin-top: 10px;*/
+      width: 374px;
+      height: 100%;
+      margin-top: 20px;
+      left: 50%;
+      margin-left: -187px;
+      /*left: 50%;*/
+      /*margin-top: 5%;*/
+
+      /*margin-left: 10%;*/
+      /*background: #5db2df;*/
+      /*background: #EDEFF2;*/
+/*      border-radius: 12px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);*/
+      /*overflow: hidden;*/
+    }
+  </style>
+
+
+</head>
 
 <body>
-
-
 <div class="container">
-<div class="col-md-9 col-md-offset-1">
+<div class="col-md-12 col-md-offset-0">
   <!-- PAGE TITLE -->
 <div class="page-header">
     <h1><span class="glyphicon glyphicon-glass"></span>Restaurants with Complaints </h1>
-  </div>
+</div>
 <div class="app" ng-app="myApp" ng-controller="customersCtrl">
 
 
 <div id="criteria">
 <form class="form">
 
-<div class="form-group col-md-3 col-md-offset-1">
+<div class="form-group">
   <label>Enter Year</label>
   <input type="text" name="year" class="form-control" placeholder="e.g: 2015" ng-model="formData.year">
 </div>
 
-<div class="form-group col-md-4">
+<div class="form-group">
   <label>Enter Min Complaints</label>
-  <input type="number" name="mincompl" step="1" class="form-control" placeholder="e.g: 2" ng-model="formData.mincompl">
+  <input type="number" name="mincompl" step="1" class="form-control" placeholder="e.g: 0" ng-model="formData.mincompl">
 </div>
 
-<div class="form-group col-md-3">
+<div class="form-group">
   <label>Enter Max Score</label>
-  <input type="number" name="maxscore" class="form-control"  min="0" max="120" step="1" placeholder="e.g: 75" ng-model="formData.maxscore">
+  <input type="number" name="maxscore" class="form-control"  min="0" max="120" step="1" placeholder="e.g: 99" ng-model="formData.maxscore">
 </div>
 
 <button id="submitBtn" type="button" class="btn btn-success btn-lg btn-block" ng-click="submit()" >
@@ -84,7 +117,7 @@
 
 
 
-<div class="panel panel-primary" ng-repeat="x in records">
+<div class="resultCard panel panel-primary" ng-repeat="x in records">
   <div class="panel-heading large">{{x.name}} owned by {{x.operator}}</div>
 
   <div class="list-group infoList">
@@ -123,7 +156,7 @@
 
 </div>
 </div>
-<div>
+</div>
 
 
 <script>
@@ -147,6 +180,7 @@ app.controller('customersCtrl', function($scope, $http, $window) {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       });
        request.success(function (data) {
+        $scope.formData = null;
         $scope.records = data;
         console.log(data);
        }); 
